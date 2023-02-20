@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>小米实验</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./css/header.css"> -->
+    <link rel="stylesheet" href="./css/buju.css">
+    <link rel="stylesheet" href="./css/section.css">
+    <script src="https://unpkg.com/vue@next"></script>
+ 
+</head>
+
+<body>
+   <!-- 学号:19001242；姓名：陶思怡 -->
+    <div id="app"></div>
+    <template id="root">
+        <!--中间内容-->
+        <div id="section">
+            <div id="section-phone">
+                <div class="section-phone__wz">
+                    <div>手机</div>
+                </div>
+                <div class="grid2">
+                    <!-- 左边 -->
+                    <div class="section-phone_left grid2-cell-1">
+                        <a class="" href="">
+                            <img src="./images/ad1.png" alt="">
+                        </a>
+                    </div>
+                    <!-- 右边 -->
+                    <div class="section-phone_right grid2-cell-11">
+                        <div class="section-phone__row1" >
+                            <!--循环数组 -->
+                            <div class="section-phone__content" v-for="(item,index) in phoneList" :key="index">
+                                <a href="">
+                                <div class="content-images"><img class="peijian-sjimg" :src='item.img'></div>
+                                <div class="content-link">{{item.link}}</div>
+                                <div class="content-note">{{item.note}}</div>
+                                <div class="content-price">{{item.price}}元起</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Scripts -->
+    <script>
+        const app=Vue.createApp({
+            template:'#root',
+                data(){
+                    return {
+                        //数组里面存对象
+                        phoneList:[
+                            {id:"1",link:"Redmi K50 电竞版",note:"全线拉满的冷血旗舰",price:"3299",img:"./images/phone1.png"},
+                            {id:"2",link:"Xiaomi 12 Pro",note:"全新骁龙8 | 2K AMOLED屏幕",price:"3699",img:"./images/phone2.png"},
+                            {id:"3",link:"Xiaomi 12",note:"全新骁龙8 | 5000万主摄",price:"3699",img:"./images/phone3.png"},
+                            {id:"4",link:"Xiaomi 12X",note:"骁龙870 | 5000万主摄",price:"2999",img:"./images/phone4.png"},
+                            {id:"5",link:"Xiaomi 11 青春活力板",note:"轻薄5G 内外出彩",price:"1899",img:"./images/phone5.png"},
+                            {id:"6",link:"Redmi Note 11 Pro系列",note:"三星AMOLED高刷屏",price:"1799",img:"./images/phone6.png"},
+                            {id:"7",link:"Redmi Note 11 5G",note:"5000mAh大电量",price:"1199",img:"./images/phone7.png"},
+                            {id:"8",link:"Redmi Note 11 4G",note:"5000mAh大电量",price:"969",img:"./images/phone8.png"},
+
+                        ],
+                    
+                    }
+                }
+        })
+        // 进行挂载
+        app.mount('#app')
+    </script>
+
+</body>
+
+</html>
